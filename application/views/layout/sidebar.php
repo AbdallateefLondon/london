@@ -107,6 +107,32 @@ foreach ($side_list_value->submenus as $submenu_key => $submenu_value) {
 ?>
         <!-- //==================sidebar dynamic======================= -->
 
+        <!-- Educational Games Menu -->
+        <?php if ($this->session->userdata('admin')['role_id'] == 1) { ?>
+        <li class="treeview <?php echo activate_main_menu('Educational_Games'); ?>">
+            <a href="#">
+                <i class="fa fa-gamepad"></i> <span><?php echo $this->lang->line('educational_games'); ?></span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="<?php echo activate_submenu('games', array('index')); ?>">
+                    <a href="<?php echo site_url('admin/games'); ?>">
+                        <i class="fa fa-angle-double-right"></i><?php echo $this->lang->line('manage_games'); ?>
+                    </a>
+                </li>
+                <li class="<?php echo activate_submenu('games', array('create')); ?>">
+                    <a href="<?php echo site_url('admin/games/create'); ?>">
+                        <i class="fa fa-angle-double-right"></i><?php echo $this->lang->line('create_game'); ?>
+                    </a>
+                </li>
+                <li class="<?php echo activate_submenu('leaderboard', array('index')); ?>">
+                    <a href="<?php echo site_url('leaderboard'); ?>">
+                        <i class="fa fa-angle-double-right"></i><?php echo $this->lang->line('leaderboards'); ?>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <?php } ?>
+
         </ul>
     </section>
 </aside>

@@ -419,6 +419,30 @@ if ($role == 'student' || $role == 'parent') {
 
                         <li class="<?php echo set_Topmenu('my_profile'); ?>"><a href="<?php echo base_url(); ?>user/user/profile"><i class="fa fa-user-plus ftlayer"></i> <span><?php echo $this->lang->line('my_profile'); ?></span></a></li>
 
+                                                <!-- Educational Games Menu for Students -->
+                        <li class="treeview <?php echo set_Topmenu('Student_Games'); ?>">
+                            <a href="#">
+                                <i class="fa fa-gamepad ftlayer"></i> <span><?php echo $this->lang->line('educational_games'); ?></span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="<?php echo set_Submenu('student_games/index'); ?>">
+                                    <a href="<?php echo base_url(); ?>user/student_games">
+                                        <i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('play_games'); ?>
+                                    </a>
+                                </li>
+                                <li class="<?php echo set_Submenu('student_games/history'); ?>">
+                                    <a href="<?php echo base_url(); ?>user/student_games/history">
+                                        <i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('game_history'); ?>
+                                    </a>
+                                </li>
+                                <li class="<?php echo set_Submenu('leaderboard/index'); ?>">
+                                    <a href="<?php echo base_url(); ?>leaderboard">
+                                        <i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('leaderboards'); ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <?php if ($this->module_lib->hasActive('fees_collection') && $this->studentmodule_lib->hasActive('fees')) {?>
                             <li class="<?php echo set_Topmenu('fees'); ?>"><a href="<?php echo base_url(); ?>user/user/getfees"><i class="fa fa-money ftlayer"></i> <span><?php echo $this->lang->line('fees'); ?></span></a></li>
                         <?php }?>
